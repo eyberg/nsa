@@ -1,0 +1,13 @@
+--- 
+mysql:
+  name: mysql
+  regex: "/usr/sbin/mysqld"
+beanstalk:
+  name: beanstalk
+  fullname: "beanstalk" 
+memcached: 
+  name: memcached
+  regex: "memcached"
+merb: 
+  name: merb
+  regex: "merb"

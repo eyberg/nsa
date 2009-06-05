@@ -1,0 +1,19 @@
+%link{ :href => '/stylesheets/index.css', :rel =>  'stylesheet', :type => 'text/css' }
+
+%h2
+  Monitoring the Following Services
+  %br
+%table{ :cellspacing => "20px", :style => "width: 200px;" }
+  %tr
+    %td
+      Name
+    %td
+      Regex
+  - @services.each do |service|
+    %tr
+      %td
+        = service.name
+      %td
+        = service.regex
+%a{ :href => '/newservice'}
+  Add New Service

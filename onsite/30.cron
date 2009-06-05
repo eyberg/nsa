@@ -1,0 +1,8 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# every 5 minutes
+*/5 * * * * /usr/bin/ruby /etc/cron.d/monitor.rb > blah.log 2>&1
+
+# every minute
+#* * * * * /usr/bin/ruby /etc/cron.d/monitor.rb > blah.log 2>&1

@@ -1,0 +1,55 @@
+NSA
+
+NSA is a two-part monitoring system borrowing the best
+from both worlds that produces a hybrid onsite/offsite
+monitoring system.
+
+ONSITE
+-----------------------------------------------------
+I've looked at monit/god and they are damn good but I
+haven't found a good non-hacky way to make sure it
+works when I'm deploying 20 times a day besides
+shutting it down in the morning and bringing it up
+at night. Also, sometimes the control is not so
+explicit.
+
+OFFSITE
+-----------------------------------------------------
+I've used newrelic and hoptoad and they are damn good
+but they don't inform me fast enough if my app is slow
+or down. They also don't monitor everything I want to
+see. I have a merb app, java app, a messaging queue --
+you get the picture.
+
+INSTALL ONSITE
+-----------------------------------------------------
+  1) cp onsite/monitor.rb /etc/cron.d/.
+  2) cp onsite/30.cron /etc/cron.d/.
+  3) change monitor.rb hostname/port in initialize block
+  4) crontab /etc/cron.d/30.cron
+
+INSTALL OFFSITE
+-----------------------------------------------------
+  1) sudo gem install sinatra haml datamapper
+  2) nohup ruby nsa.rb 2>&1 /tmp/sin.log &
+
+
+AUTOINSTALL
+-----------------------------------------------------
+ 
+just execute install.sh for an all-in-one install experience
+(if you have your ssh-key in your path you should be good to go)
+
+./install.rb
+
+
+FUTURE FEATURES
+-----------------------------------------------------
+
+  * round-robin graphing for services
+  * instant/txt msg/email for 'severe' warnings
+  * user-defined instant reboot
+  * production/development switches -- you don't want to have
+    (instant reboot on a server you are deploying to 20 times/day)
+  * auto-install/auto-configure for user-defined services
+  * ability to edit from web interface rather than conf files

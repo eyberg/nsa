@@ -1,0 +1,43 @@
+%link{ :href => '/stylesheets/index.css', :rel =>  'stylesheet', :type => 'text/css' }
+%script{ :src => '/javascripts/jquery.js' }
+
+%left
+  %h2
+    Memory Hogs (top 5):
+
+  %img{ :src => "http://chart.apis.google.com/chart?cht=p3&chd=t:#{@memusage}&chs=250x100&chl=#{@memnames}" }
+  %br
+
+  .history
+    - @memlist.each do |el|
+      %a{ :onclick => "jQuery.get('/linechart', 'name=#{el}', function(msg) {$('#linechart').replaceWith(msg);});" }
+        = el
+      |
+  #linechart
+  %br
+  \----------------------------------------------
+  %h2
+    CPU Hogs (top 5):
+
+  .history
+    - @cpulist.each do |el|
+      %a{ :onclick => "jQuery.get('/linechart', 'name=#{el}', function(msg) {$('#cpuline').replaceWith(msg);});" }
+        = el
+      |
+  #cpuline
+  %br
+  \----------------------------------------------
+
+
+  %br
+  %h2
+    Mysql Load:
+  %br
+  %h2
+    Beanstalk Load:
+  %br
+  %h2
+    User Load:
+  %br
+  %h2
+    Merb Load:

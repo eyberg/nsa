@@ -1,0 +1,22 @@
+%link{ :href => '/stylesheets/index.css', :rel =>  'stylesheet', :type => 'text/css' }
+
+%h2
+  Hosts Reporting In:
+  %br
+%table{ :cellspacing => "20px", :style => "width: 200px;" }
+  %tr
+    %td
+      Name
+    %td
+      IP
+    %td
+      UpTime
+  - @hosts.each do |host|
+    %tr
+      %td
+        = host.name
+      %td
+        %a{ :href => '/reports' }
+          = host.ip
+      %td
+        = host.uptime

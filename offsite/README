@@ -1,0 +1,17 @@
+the nsa webserver allows you to do a couple of things:
+
+* reports
+--------------------
+gives you charts for all configured
+services, top5 monitoring on cpu/mem, etc..
+
+* services
+--------------------
+allows you to add a specific service to monitor
+that might not be in the default install; auto-creates
+and installs a new cronjob, monitoring script so you
+dont' have to guess whether something is working
+
+* HOSTS *
+--------------------
+add/update hosts to monitor

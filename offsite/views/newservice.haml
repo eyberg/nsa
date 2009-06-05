@@ -1,0 +1,18 @@
+%link{ :href => '/stylesheets/index.css', :rel =>  'stylesheet', :type => 'text/css' }
+
+%h2
+  Add a New Service
+%form{ :action => 'addservice', :method => 'post'}
+  %b
+    Name:
+  %input{ :type => 'text', :name => 'name' }
+  %br
+  %b
+    Regex:
+  %input{ :type => 'text', :name => 'regex' }
+  %br
+  %input{ :type => 'submit', :value => 'Add' }
+  %i
+    (check out your regex on a real process dump)
+  %br
+  %iframe{ :width => '100%', :height => '600px', :src => 'http://www.rubular.com' }
